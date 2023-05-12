@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 693933172}
   - component: {fileID: 693933171}
   - component: {fileID: 693933170}
+  - component: {fileID: 693933173}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -402,7 +403,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -565,6 +566,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693933161}
   m_CullTransparentMesh: 1
+--- !u!114 &693933173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693933161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2a9c34df4095f47b9ca8f975175f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Device: 0
+  m_PoseSource: 2
+  m_PoseProviderComponent: {fileID: 0}
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_UseRelativeTransform: 0
 --- !u!43 &987305313
 Mesh:
   m_ObjectHideFlags: 0
@@ -761,7 +780,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1850178002}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1000912977
 SphereCollider:
@@ -857,7 +876,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1850178002}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1096483797
 MeshRenderer:
@@ -1160,7 +1179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1850178001}
   mHiddenRoot: {fileID: 0}
-  mTargetName: DefaultWordImage
+  mTargetName: palabra_white_bg
   mDatasetName: 
   mCastedBehaviour: {fileID: 1850178001}
   mMeshFilter: {fileID: 0}
@@ -1224,14 +1243,14 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: DefaultWordImage
+  mTrackableName: palabra_white_bg
   mInitializedInEditor: 1
   mDataSetPath: 
   mAspectRatio: 0.42687747
   mImageTargetType: 3
   mWidth: 0.2
   mHeight: 0.085375495
-  mRuntimeTexture: {fileID: 2800000, guid: ba3933da3af6d3545984da80971fed6e, type: 3}
+  mRuntimeTexture: {fileID: 2800000, guid: 75e2f093114e0a64fb4835dcb56d8e9f, type: 3}
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
