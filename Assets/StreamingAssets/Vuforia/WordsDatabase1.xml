@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="trusted_image" size="1.000000 1.086460" />
     <ImageTarget name="palabra_white_bg_24bits" size="1.000000 0.546250" />
     <ImageTarget name="mumble_white_bg_reddot" size="1.000000 0.555556" />
     <ImageTarget name="mumble_white_bg_24bits" size="1.000000 0.555556" />
