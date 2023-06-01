@@ -566,7 +566,8 @@ PlayerSettings:
   webGLCompressionFormat: 1
   scriptingDefineSymbols: {}
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Metro: 2
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 0
@@ -575,14 +576,14 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: IndomitusReader
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: C:\UnityProjects\IndomitusReader\IndomitusReader\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: Borja Fernandez
+  metroCertificateIssuer: Borja Fernandez
+  metroCertificateNotAfter: 00ea3044c0b3da01
   metroApplicationDescription: IndomitusReader
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: IndomitusReader
   metroCommandLineArgsFile: 
   metroTileShowName: 0
   metroMediumTileShowName: 0
