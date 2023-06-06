@@ -576,7 +576,7 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: IndomitusReader
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: C:\UnityProjects\IndomitusReader\IndomitusReader\Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: Borja Fernandez
   metroCertificateIssuer: Borja Fernandez
