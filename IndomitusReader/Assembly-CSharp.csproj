@@ -51,7 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MyAssets\Scripts\ButtonCommand.cs" />
      <Compile Include="Assets\MyAssets\Scripts\Cursor.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\GazeGestureManager.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
