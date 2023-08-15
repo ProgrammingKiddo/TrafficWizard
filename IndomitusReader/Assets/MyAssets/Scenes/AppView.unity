@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 274309972}
   - component: {fileID: 274309971}
   - component: {fileID: 274309970}
+  - component: {fileID: 274309975}
   m_Layer: 0
   m_Name: Sign_30kmph_wbg
   m_TagString: Untagged
@@ -230,6 +231,17 @@ MonoBehaviour:
   mImageTargetType: 0
   mWidth: 0.5
   mHeight: 0.5
+--- !u!114 &274309975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 274309968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8c0f08ade70a54a81afaa7d94f8603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &335798827
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &882716967
 Transform:
   m_ObjectHideFlags: 0
