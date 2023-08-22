@@ -53,11 +53,12 @@
   <ItemGroup>
      <Compile Include="Assets\MyAssets\Scripts\ButtonCommand.cs" />
      <Compile Include="Assets\MyAssets\Scripts\Cursor.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\CustomTrackableEventHandler.cs" />
      <Compile Include="Assets\MyAssets\Scripts\GazeGestureManager.cs" />
      <Compile Include="Assets\MyAssets\Scripts\TrafficSign.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\VuforiaTestScript.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />
-     <Compile Include="Assets\VuforiaTestScript.cs" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\StreamingAssets\Vuforia\VuforiaMars_ModelTarget.xml" />
      <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
