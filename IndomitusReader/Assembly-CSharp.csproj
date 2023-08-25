@@ -51,10 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Director.cs" />
+     <Compile Include="Assets\IGameDirector.cs" />
      <Compile Include="Assets\MyAssets\Scripts\ButtonCommand.cs" />
      <Compile Include="Assets\MyAssets\Scripts\Cursor.cs" />
      <Compile Include="Assets\MyAssets\Scripts\CustomTrackableEventHandler.cs" />
      <Compile Include="Assets\MyAssets\Scripts\GazeGestureManager.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\MainMenuScript.cs" />
      <Compile Include="Assets\MyAssets\Scripts\TrafficSign.cs" />
      <Compile Include="Assets\MyAssets\Scripts\VuforiaTestScript.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
