@@ -44,9 +44,9 @@ MonoBehaviour:
       ContainsMagnet: 0
   databaseLoad:
     dataSetsToLoad:
-    - WordsDatabase1
+    - TrafficSign_Database
     dataSetsToActivate:
-    - WordsDatabase1
+    - TrafficSign_Database
   videoBackground:
     clippingMode: 0
     numDivisions: 2

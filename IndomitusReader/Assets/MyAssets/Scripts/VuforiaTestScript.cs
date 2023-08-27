@@ -11,9 +11,9 @@ public class VuforiaTestScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        imageTargetBehaviour = GetComponent<ImageTargetBehaviour>();
+        /*imageTargetBehaviour = GetComponent<ImageTargetBehaviour>();
         imageTarget = imageTargetBehaviour.ImageTarget;
-        imageTargetName = imageTarget.Name;
+        imageTargetName = imageTarget.Name;*/
 	}
 	
 	// Update is called once per frame
