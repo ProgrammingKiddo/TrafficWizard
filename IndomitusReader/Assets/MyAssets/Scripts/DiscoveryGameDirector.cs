@@ -21,6 +21,8 @@ public class DiscoveryGameDirector : IGameDirector {
     {
         Debug.Log(go.name);
         recognizedSignName = go.GetComponent<ImageTargetBehaviour>().ImageTarget.Name;
-        Debug.Log(trafficSignDictionary.trafficSigns[recognizedSignName]);
+        string recognizedSignText = trafficSignDictionary.trafficSigns[recognizedSignName];
+        Debug.Log(recognizedSignText);
+        go.transform.GetChild(0).GetChild(0).GetComponent<UnityEngine.UI.Text>().text = recognizedSignText;
     }
 }
