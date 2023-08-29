@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
+using System.Text;
 
- [CreateAssetMenu(fileName = "New_TrafficSign", menuName = "New Traffic Sign")]
-public class TrafficSign : ScriptableObject {
-
-    public string Name;
-    public string Text;
-    public Sprite Sign;
+[System.Serializable]
+public class TrafficSign
+{
+    public string signName;
+    public string signText;
 }

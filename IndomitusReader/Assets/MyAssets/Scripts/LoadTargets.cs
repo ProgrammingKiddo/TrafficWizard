@@ -14,14 +14,14 @@ public class LoadTargets : MonoBehaviour, IUserDefinedTargetEventHandler {
 
     // Use this for initialization
     void Start () {
-        //VuforiaApplication.Instance.OnVuforiaInitialized += OnVuforiaInitialized;
-        //userDefinedTargetBuildingBehaviour = GetComponent<UserDefinedTargetBuildingBehaviour>();
+        /*VuforiaApplication.Instance.OnVuforiaInitialized += OnVuforiaInitialized;
+        userDefinedTargetBuildingBehaviour = GetComponent<UserDefinedTargetBuildingBehaviour>();
         userDefinedTargetBuildingBehaviour = new UserDefinedTargetBuildingBehaviour();
         if (userDefinedTargetBuildingBehaviour)
         {
             Debug.Log("Target building behaviour set!");
             userDefinedTargetBuildingBehaviour.RegisterEventHandler(this);
-        }
+        }*/
 	}
 	
 	// Update is called once per frame
