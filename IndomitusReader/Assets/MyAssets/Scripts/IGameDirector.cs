@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IGameDirector {
 
     void ButtonClicked(GameObject go);
+    void TestButtonClicked(string goName, GameObject textGO);
 }
