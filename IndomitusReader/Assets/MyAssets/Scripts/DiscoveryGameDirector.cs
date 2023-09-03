@@ -18,7 +18,8 @@ public class DiscoveryGameDirector : IGameDirector {
         string recognizedSignText;
         string recognizedSignName;
 
-        recognizedSignName = go.GetComponent<ImageTargetBehaviour>().ImageTarget.Name;
+        recognizedSignName = go.GetComponentInParent<ImageTargetBehaviour>().ImageTarget.Name;
+        Debug.Log(recognizedSignName);
         bool exists = trafficSignsDAO.GetTrafficSignText(recognizedSignName, out recognizedSignText);
         if (exists)
         {

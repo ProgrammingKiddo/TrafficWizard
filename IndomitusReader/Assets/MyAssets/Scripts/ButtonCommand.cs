@@ -8,6 +8,7 @@ public class ButtonCommand : MonoBehaviour
     void Start()
     {
         parentGO = this.transform.parent.gameObject;
+        Debug.Log(parentGO.name);
     }
 
     // Called by GazeGestureManager when the user performs a Select gesture
