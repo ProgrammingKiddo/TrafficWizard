@@ -16,7 +16,11 @@ public class Director : MonoBehaviour {
 	void Update () {
 	    if (Input.GetMouseButtonDown(0))
         {
-            TestButtonClicked();
+            TestButtonClicked("Sign_R-2");
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            TestButtonClicked("Sign_R-301_30kmph");
         }
 	}
 
@@ -25,8 +29,8 @@ public class Director : MonoBehaviour {
         gameDirector.ButtonClicked(go);
     }
 
-    private void TestButtonClicked()
+    private void TestButtonClicked(string name)
     {
-        gameDirector.TestButtonClicked("Sign_R-2", TextGO);
+        gameDirector.TestButtonClicked(name, TextGO);
     }
 }

@@ -14,7 +14,7 @@ public class FileParserTrafficSignsData : ITrafficSignsData
 
     public FileParserTrafficSignsData(string filePath)
     {
-        _filePath = filePath;
+        _filePath = Application.dataPath + filePath;
 
         string rawText;
         ExtractRawText(out rawText);
