@@ -52,6 +52,7 @@ public class FileParserTrafficSignsData : ITrafficSignsData
         }
         catch (System.Exception e)
         {
+            Debug.Log(e);
             _fileFound = false;
             rawText = null;
         }
