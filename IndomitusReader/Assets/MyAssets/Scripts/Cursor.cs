@@ -13,8 +13,10 @@ public class Cursor : MonoBehaviour
         meshRenderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // FixedUpdate is called in every physics step
+    // since we're using Raycasts (physics) it's preferrable
+    // that we operate in this method instead of Update()
+    void FixedUpdate()
     {
         // Do a raycast into the world based on the user's
         // head position and orientation.
