@@ -28,8 +28,7 @@ public class GazeGestureManager : MonoBehaviour
         recognizer.StartCapturingGestures();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Figure out which hologram is focused this frame.
         GameObject oldFocusObject = FocusedObject;
@@ -42,11 +41,13 @@ public class GazeGestureManager : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
         {
+            Debug.Log("Collided with " + hitInfo.collider.gameObject.name);
             // If the raycast hit a hologram, use that as the focused object.
             FocusedObject = hitInfo.collider.gameObject;
         }
         else
         {
+            Debug.Log("Raycast found no collision.");
             // If the raycast did not hit a hologram, clear the focused object.
             FocusedObject = null;
         }
