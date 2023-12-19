@@ -12,7 +12,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Borja Fernandez
-  productName: IndomitusReader
+  productName: TrafficWizard
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -260,7 +260,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 85694ac8769bfa34497f08b38ccf39de, type: 3}
+      m_Icon: {fileID: 0}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -581,16 +581,17 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: IndomitusReader
+  metroPackageName: TrafficWizard
   metroPackageVersion: 1.0.0.0
   metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: Borja Fernandez
   metroCertificateIssuer: Borja Fernandez
   metroCertificateNotAfter: 00ea3044c0b3da01
-  metroApplicationDescription: IndomitusReader
+  metroApplicationDescription: An augmented-reality app for traffic education for
+    Microsoft Hololens.
   wsaImages: {}
-  metroTileShortName: IndomitusReader
+  metroTileShortName: TrafficWizard
   metroCommandLineArgsFile: 
   metroTileShowName: 0
   metroMediumTileShowName: 0
