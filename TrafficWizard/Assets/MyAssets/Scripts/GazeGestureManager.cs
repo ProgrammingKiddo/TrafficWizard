@@ -47,7 +47,7 @@ public class GazeGestureManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Raycast found no collision.");
+            //Debug.Log("Raycast found no collision.");
             // If the raycast did not hit a hologram, clear the focused object.
             FocusedObject = null;
         }
