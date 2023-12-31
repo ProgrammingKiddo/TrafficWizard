@@ -13,7 +13,7 @@ public class Cursor : MonoBehaviour
         meshRenderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
     }
 
-    // FixedUpdate is called in every physics step
+    // FixedUpdate is called in every physics step, and
     // since we're using Raycasts (physics) it's preferrable
     // that we operate in this method instead of Update()
     void FixedUpdate()
