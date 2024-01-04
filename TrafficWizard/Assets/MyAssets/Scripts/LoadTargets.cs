@@ -22,6 +22,7 @@ public class LoadTargets : MonoBehaviour, IUserDefinedTargetEventHandler {
             Debug.Log("Target building behaviour set!");
             userDefinedTargetBuildingBehaviour.RegisterEventHandler(this);
         }*/
+        //ImageTargetBehaviour targetBehaviour = GetComponent<ImageTargetBehaviour>();
 	}
 	
 	// Update is called once per frame

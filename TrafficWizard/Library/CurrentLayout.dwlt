@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 123
+  controlID: 124
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 124
+  controlID: 125
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -324,18 +324,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/MyAssets/Scripts
+    - Assets/MyAssets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/MyAssets/Scripts
+  - Assets/MyAssets/Prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\UnityProjects\TrafficWizard\TrafficWizard
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 23}
-    m_SelectedIDs: 502a0000
-    m_LastClickedID: 10832
+    scrollPos: {x: 0, y: 59}
+    m_SelectedIDs: b8360000
+    m_LastClickedID: 14008
     m_ExpandedIDs: 00000000742900008c290000942a0000fe2a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: dc290000042b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -450,7 +450,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 9cfbffff00000000
+    m_ExpandedIDs: 185ffdfffc5ffdff2862fdff1072fdfff472fdff2075fdffbe7ffdffa280fdffce82fdffc25ffeffa660feffd262feffcc7ffeff56b6feff6089ffff8a94ffff7a95ffffaa97ffff9cfbffff00000000962b0000a42b0000c62b0000dc2b0000e42b0000002c00003c2c0000402c00004e2c0000a42f0000bc2f0000ee2f0000fe2f0000063000000e300000263000007230000076300000843000008e350000183600008c3600004c3b0000e43b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -746,14 +746,14 @@ MonoBehaviour:
     height: 359
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 5214.4577211
+  lastFramingTime: 29079.6662094
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.08667674, y: -0.041263044, z: -0.08237934}
+    m_Target: {x: 0.026375208, y: 0.35339785, z: 0.36555886}
     speed: 2
-    m_Value: {x: -0.08667674, y: -0.041263044, z: -0.08237934}
+    m_Value: {x: 0.026375208, y: 0.35339785, z: 0.36555886}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -777,13 +777,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.4960774, y: -0.07793587, z: 0.04476788, w: -0.863614}
+    m_Target: {x: -0.38989362, y: -0.05933219, z: 0.025183028, w: -0.9186014}
     speed: 2
-    m_Value: {x: -0.49607742, y: -0.07793587, z: 0.044767883, w: -0.8636141}
+    m_Value: {x: -0.38989362, y: -0.05933219, z: 0.025183028, w: -0.9186014}
   m_Size:
-    m_Target: 0.9792785
+    m_Target: 3.8896315
     speed: 2
-    m_Value: 0.9792785
+    m_Value: 3.8896315
   m_Ortho:
     m_Target: 0
     speed: 2

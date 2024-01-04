@@ -8,12 +8,16 @@ public class Director : MonoBehaviour {
 
     public GameObject TextGO;
     public GameObject testTargetGO;
+    public GameObject Cube;
 
     private IGameDirector gameDirector;
-	// Use this for initialization
-	void Start () {
+    private GameObject createdGO;
+    private Vector3 eulerAngleVelocity = new Vector3(10f, 10f, 0f);
+    // Use this for initialization
+    void Start () {
         gameDirector = new DiscoveryGameDirector();
-	}
+        createdGO = Instantiate<GameObject>(Cube);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,6 +39,14 @@ public class Director : MonoBehaviour {
             ButtonClicked(testTargetGO);
         }*/
 	}
+
+    void FixedUpdate()
+    {
+        Debug.Log("Camera: " + Camera.main.transform.position);
+        Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.fixedDeltaTime);
+        createdGO.GetComponent<Rigidbody>().MoveRotation(createdGO.GetComponent<Rigidbody>().rotation * deltaRotation);
+        Debug.Log("Cube: " + createdGO.transform.position);
+    }
 
     public void ButtonClicked(GameObject go)
     {
