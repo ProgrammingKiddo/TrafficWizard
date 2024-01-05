@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="Sign_R-306" size="0.500000 0.500000" />
+    <ImageTarget name="Sign_R-410" size="0.500000 0.496759" />
+    <ImageTarget name="Sign_R-307_24bits_pntn" size="0.500000 0.500000" />
     <ImageTarget name="Sign_R-308e" size="0.500000 0.888158" />
     <ImageTarget name="Sign_R-4" size="0.500000 0.500000" />
     <ImageTarget name="Sign_R-502" size="0.500000 0.500000" />
