@@ -16,7 +16,7 @@ public class Director : MonoBehaviour {
     // Use this for initialization
     void Start () {
         gameDirector = new DiscoveryGameDirector();
-        createdGO = Instantiate<GameObject>(Cube);
+        //createdGO = Instantiate<GameObject>(Cube);
     }
 	
 	// Update is called once per frame
@@ -39,7 +39,7 @@ public class Director : MonoBehaviour {
             ButtonClicked(testTargetGO);
         }*/
 	}
-
+/*
     void FixedUpdate()
     {
         Debug.Log("Camera: " + Camera.main.transform.position);
@@ -47,7 +47,7 @@ public class Director : MonoBehaviour {
         createdGO.GetComponent<Rigidbody>().MoveRotation(createdGO.GetComponent<Rigidbody>().rotation * deltaRotation);
         Debug.Log("Cube: " + createdGO.transform.position);
     }
-
+*/
     public void ButtonClicked(GameObject go)
     {
         Debug.Log("Processing buttonclicked() for " + go.name);
