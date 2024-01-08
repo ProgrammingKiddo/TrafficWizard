@@ -1,8 +1,18 @@
-﻿using UnityEngine;
+﻿/*
+ * Based on the code by the Microsoft Corporation (2023)
+ * https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/tutorials/holograms-101
+ * 
+ * Source cited as per the 'Writing Code' guidelines on Academic Integrity at MIT
+ * https://integrity.mit.edu/handbook/writing-code
+ */
 
+using UnityEngine;
+
+// This script manages the visualization of the pointer
+// on top of thridimensional objects and planes
 public class Cursor : MonoBehaviour
 {
-    private MeshRenderer meshRenderer;
+    private MeshRenderer cursorMeshRenderer;
     private Vector3 headPosition;
     private Vector3 gazeDirection;
 
@@ -10,7 +20,7 @@ public class Cursor : MonoBehaviour
     void Start()
     {
         // Grab the mesh renderer that's on the same object as this script.
-        meshRenderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
+        cursorMeshRenderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
     }
 
     // FixedUpdate is called in every physics step, and
@@ -29,7 +39,7 @@ public class Cursor : MonoBehaviour
         {
             // If the raycast hit a hologram...
             // Display the cursor mesh.
-            meshRenderer.enabled = true;
+            cursorMeshRenderer.enabled = true;
 
             // Move the cursor to the point where the raycast hit.
             this.transform.position = hitInfo.point;
@@ -39,8 +49,8 @@ public class Cursor : MonoBehaviour
         }
         else
         {
-            // If the raycast did not hit a hologram, hide the cursor mesh.
-            meshRenderer.enabled = false;
+            // If the raycast did not hit a 3D object, don't render the cursor's mesh.
+            cursorMeshRenderer.enabled = false;
         }
     }
 }
