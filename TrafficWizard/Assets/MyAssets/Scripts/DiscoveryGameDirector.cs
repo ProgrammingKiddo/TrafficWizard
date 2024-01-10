@@ -16,11 +16,11 @@ public class DiscoveryGameDirector : IGameDirector {
     public void ButtonClicked(GameObject go)
     {
         string recognizedSignText;
-        string recognizedSignName;
+        string recognizedSignTargetName;
 
-        recognizedSignName = go.GetComponentInParent<ImageTargetBehaviour>().ImageTarget.Name;
-        Debug.Log(recognizedSignName);
-        bool exists = trafficSignsDAO.GetTrafficSignText(recognizedSignName, out recognizedSignText);
+        recognizedSignTargetName = go.GetComponentInParent<ImageTargetBehaviour>().ImageTarget.Name;
+        Debug.Log(recognizedSignTargetName);
+        bool exists = trafficSignsDAO.GetSignTextByTargetName(recognizedSignTargetName, out recognizedSignText);
         if (exists)
         {
             go.transform.GetChild(0).GetChild(0).GetComponent<UnityEngine.UI.Text>().text = recognizedSignText;
@@ -34,7 +34,7 @@ public class DiscoveryGameDirector : IGameDirector {
     public void TestButtonClicked(string goName, GameObject textGO)
     {
         string text;
-        bool exists = trafficSignsDAO.GetTrafficSignText(goName, out text);
+        bool exists = trafficSignsDAO.GetSignTextByTargetName(goName, out text);
         if (exists)
         {
             textGO.GetComponent<UnityEngine.UI.Text>().text = text;
