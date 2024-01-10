@@ -1891,7 +1891,7 @@ GameObject:
   - component: {fileID: 628780531}
   - component: {fileID: 628780530}
   m_Layer: 0
-  m_Name: Background_Plane (1)
+  m_Name: Background_Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2907,7 +2907,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Sign_R-502Material
+  m_Name: Sign_R-6Material
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -2920,7 +2920,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: fd3e7920a5f24043af1a835b94714772, type: 3}
+        m_Texture: {fileID: 2800000, guid: 523a7295d58542489b442451f053c48b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -4229,7 +4229,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Sign_R-308eMaterial
+  m_Name: Sign_R-4Material
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -4242,7 +4242,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1fa61c7ef6324899af9762953298e26f, type: 3}
+        m_Texture: {fileID: 2800000, guid: b9ba3391ff54402880d2394c93fddbbd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -4454,7 +4454,7 @@ GameObject:
   - component: {fileID: 1545557025}
   - component: {fileID: 1545557024}
   m_Layer: 0
-  m_Name: Background_Plane (2)
+  m_Name: Background_Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4961,8 +4961,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1728430347}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -25, y: 10, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -15, y: 8, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_Children: []
   m_Father: {fileID: 876597530}
   m_RootOrder: 0
@@ -5962,7 +5962,7 @@ GameObject:
   - component: {fileID: 1965218613}
   - component: {fileID: 1965218612}
   m_Layer: 0
-  m_Name: Background_Plane (3)
+  m_Name: Background_Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
