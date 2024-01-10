@@ -1,45 +1,86 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
 public class FileParserTrafficSignsData : ITrafficSignsData
 {
-    private readonly string _filePath;
-    private bool _fileFound;
-    private Dictionary<string, string> _trafficSignCollection = null;
+    private readonly string filePath;
+    private bool fileFound;
+    private List<TrafficSign> signCollection;
 
     // Constructors
     public FileParserTrafficSignsData() : this("/StreamingAssets/TrafficSign_TextFile.txt") { }
 
-    public FileParserTrafficSignsData(string filePath)
+    public FileParserTrafficSignsData(string givenFilePath)
     {
-        _filePath = Application.dataPath + filePath;
+        filePath = Application.dataPath + givenFilePath;
 
         string rawText;
         ExtractRawText(out rawText);
-        if (_fileFound)
+        if (fileFound)
         {
-            _trafficSignCollection = new Dictionary<string, string>();
+            signCollection = new List<TrafficSign>();
             ParseRawText(rawText);
         }
     }
 
     // Interface implementation methods
-    public bool GetTrafficSignCollection(out Dictionary<string, string> trafficSignCollection)
+    public bool GetTrafficSignCollection(out List<TrafficSign> trafficSignCollection)
     {
-        trafficSignCollection = _trafficSignCollection;
-        return (_trafficSignCollection != null) ? true : false;
+        trafficSignCollection = signCollection;
+        return (trafficSignCollection != null) ? true : false;
     }
 
-    public bool GetTrafficSignText(string trafficSignName, out string trafficSignText)
+    public bool GetSignTextByName(string signName, out string signText)
     {
-        return _trafficSignCollection.TryGetValue(trafficSignName, out trafficSignText);
+        TrafficSign tempSign = signCollection.Find(x => x.signName == signName);
+        bool signFound = (tempSign != null);
+        signText = (signFound) ? "" : tempSign.signText;
+        return signFound;
+    }
+    public bool GetSignTextByTargetName(string signTargetName, out string signText)
+    {
+        TrafficSign tempSign = signCollection.Find(x => x.signTargetName == signTargetName);
+        bool signFound = (tempSign != null);
+        signText = (signFound) ? "" : tempSign.signText;
+        return signFound;
+    }
+
+    public bool GetSignNameByText(string signText, out string signName)
+    {
+        TrafficSign tempSign = signCollection.Find(x => x.signText == signText);
+        bool signFound = (tempSign != null);
+        signName = (signFound) ? "" : tempSign.signName;
+        return signFound;
+    }
+    public bool GetSignNameByTargetName(string signTargetName, out string signName)
+    {
+        TrafficSign tempSign = signCollection.Find(x => x.signTargetName == signTargetName);
+        bool signFound = (tempSign != null);
+        signName = (signFound) ? "" : tempSign.signName;
+        return signFound;
+    }
+
+    public bool GetSignTargetNameByText(string signText, out string signTargetName)
+    {
+        TrafficSign tempSign = signCollection.Find(x => x.signText == signText);
+        bool signFound = (tempSign != null);
+        signTargetName = (signFound) ? "" : tempSign.signTargetName;
+        return signFound;
+    }
+    public bool GetSignTargetNameByName(string signName, out string signTargetName)
+    {
+        TrafficSign tempSign = signCollection.Find(x => x.signName == signName);
+        bool signFound = (tempSign != null);
+        signTargetName = (signFound) ? "" : tempSign.signTargetName;
+        return signFound;
     }
 
     public int GetNumberOfTrafficSigns()
     {
-        return _trafficSignCollection.Count;
+        return signCollection.Count;
     }
 
     // Utility methods
@@ -47,13 +88,13 @@ public class FileParserTrafficSignsData : ITrafficSignsData
     {
         try
         {
-            rawText = File.ReadAllText(_filePath);
-            _fileFound = true;
+            rawText = File.ReadAllText(filePath);
+            fileFound = true;
         }
         catch (System.Exception e)
         {
             Debug.Log(e);
-            _fileFound = false;
+            fileFound = false;
             rawText = null;
         }
     }
@@ -62,11 +103,18 @@ public class FileParserTrafficSignsData : ITrafficSignsData
         string[] lines;
         lines = rawText.Split('\n');
         int i = 0;
-        string[] keyValuePair;
+        string[] signAttributes;
         while (i < lines.Length)
         {
-            keyValuePair = lines[i].Split(';');
-            _trafficSignCollection.Add(keyValuePair[0], keyValuePair[1]);
+            TrafficSign tempSign = new TrafficSign();
+            signAttributes = lines[i].Split(';');
+            if (signAttributes.Length == 3)
+            {
+                tempSign.signTargetName = signAttributes[0];
+                tempSign.signName = signAttributes[1];
+                tempSign.signText = signAttributes[2];
+                signCollection.Add(tempSign);
+            }
             i++;
         }
     }

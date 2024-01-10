@@ -34,7 +34,7 @@ public class Director : MonoBehaviour {
         }
         else
         {
-            VersionTextGO.GetComponent<Text>().text = go.GetComponentInChildren<Text>().text;
+            VersionTextGO.GetComponent<Text>().text = "Current mode: " + go.GetComponentInChildren<Text>().text;
         }
         // Change text on the target button
         //gameDirector.ButtonClicked(go);

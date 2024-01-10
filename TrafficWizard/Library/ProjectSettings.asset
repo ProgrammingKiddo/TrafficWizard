@@ -13,7 +13,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Borja Fernandez
   productName: TrafficWizard
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: c380ed4e830bff942b602e595f3ba222, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -260,7 +260,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 85694ac8769bfa34497f08b38ccf39de, type: 3}
+      m_Icon: {fileID: 2800000, guid: 53ea89ce5476aec42a1831b268d143de, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -590,7 +590,10 @@ PlayerSettings:
   metroCertificateNotAfter: 00ea3044c0b3da01
   metroApplicationDescription: An augmented-reality app for traffic education for
     Microsoft Hololens.
-  wsaImages: {}
+  wsaImages:
+    2097252: Assets/MyAssets/Sprites/TrafficWizard_protoIcon_1_71x71.png
+    2162788: Assets/MyAssets/Sprites/TrafficWizard_protoIcon_1_150x150.png
+    2228324: Assets/MyAssets/Sprites/TrafficWizard_protoIcon_1.png
   metroTileShortName: TrafficWizard
   metroCommandLineArgsFile: 
   metroTileShowName: 0
@@ -618,14 +621,14 @@ PlayerSettings:
       Location: False
       Microphone: True
       MusicLibrary: False
-      Objects3D: False
+      Objects3D: True
       PhoneCall: False
       PicturesLibrary: False
       PrivateNetworkClientServer: False
       Proximity: False
       RemovableStorage: False
       SharedUserCertificates: False
-      SpatialPerception: False
+      SpatialPerception: True
       UserAccountInformation: False
       VideosLibrary: False
       VoipCall: False
