@@ -6,7 +6,7 @@ public class GazeGestureManager : MonoBehaviour
     public static GazeGestureManager Instance { get; private set; }
 
     // Represents the hologram that is currently being gazed at.
-    public GameObject FocusedObject { get; private set; }
+    private GameObject FocusedObject = null;
 
     GestureRecognizer recognizer;
 
@@ -22,6 +22,7 @@ public class GazeGestureManager : MonoBehaviour
             // Send an OnSelect message to the focused object and its ancestors.
             if (FocusedObject != null)
             {
+                Debug.Log("Tapped gesture recognized, sending message to " + FocusedObject.name);
                 FocusedObject.SendMessageUpwards("OnSelect", SendMessageOptions.DontRequireReceiver);
             }
         };
@@ -41,7 +42,7 @@ public class GazeGestureManager : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
         {
-            Debug.Log("Collided with " + hitInfo.collider.gameObject.name);
+            
             // If the raycast hit a hologram, use that as the focused object.
             FocusedObject = hitInfo.collider.gameObject;
         }
@@ -54,8 +55,9 @@ public class GazeGestureManager : MonoBehaviour
 
         // If the focused object changed this frame,
         // start detecting fresh gestures again.
-        if (FocusedObject != oldFocusObject)
+        if (FocusedObject != oldFocusObject && FocusedObject != null)
         {
+            Debug.Log("Collided with " + FocusedObject.name);
             recognizer.CancelGestures();
             recognizer.StartCapturingGestures();
         }
