@@ -53,7 +53,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         {
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
             OnTrackingFound();
-            Debug.Log(GetComponent<ImageTargetBehaviour>().ImageTarget.Name);
         }
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
                  newStatus == TrackableBehaviour.Status.NOT_FOUND)
@@ -79,6 +78,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);
+        var scriptComponents = GetComponentsInChildren<TargetActivation>(true);
 
         // Enable rendering:
         foreach (var component in rendererComponents)
@@ -91,6 +91,10 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Enable canvas':
         foreach (var component in canvasComponents)
             component.enabled = true;
+
+        // Enable scripts
+        foreach (var component in scriptComponents)
+            component.enabled = true;
     }
 
 
@@ -99,6 +103,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);
+        var scriptComponents = GetComponentsInChildren<TargetActivation>(true);
 
         // Disable rendering:
         foreach (var component in rendererComponents)
@@ -110,6 +115,10 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
         // Disable canvas':
         foreach (var component in canvasComponents)
+            component.enabled = false;
+
+        // Disable scripts
+        foreach (var component in scriptComponents)
             component.enabled = false;
     }
 

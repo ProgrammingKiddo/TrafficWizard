@@ -8,7 +8,10 @@ using Vuforia;
 public class Director : MonoBehaviour {
 
     public GameObject VersionTextGO;
-    public GameObject OptionPanelsGO;
+    public GameObject SettingsUI;
+    public GameObject TestModeUI;
+    public GameObject AdventureModeUI;
+    public GameObject TargetsGO;
 
     enum AppMode
     {
@@ -22,6 +25,8 @@ public class Director : MonoBehaviour {
     private IGameDirector gameDirector;
     private GameObject createdGO;
     private Vector3 eulerAngleVelocity = new Vector3(10f, 10f, 0f);
+
+    private int adventureModeScore = 0;
     // Use this for initialization
     void Start () {
         gameDirector = new DiscoveryGameDirector();
@@ -35,20 +40,67 @@ public class Director : MonoBehaviour {
         {
             FixedUIButtonClicked(2);
         }
-	}
+
+    }
 
     public void FixedUIButtonClicked(int settingsUIId)
     {
-        Debug.Log(isSettingsOpen);
         if (settingsUIId != -1)
         {
+            AppMode previousAppMode = currentAppMode;
             currentAppMode = (AppMode)settingsUIId;
+            ManageModeChange(previousAppMode, currentAppMode);
             VersionTextGO.GetComponent<Text>().text = "Current mode: " + currentAppMode;
         }
         // Turn on/off the option panels
-        OptionPanelsGO.SetActive(!OptionPanelsGO.activeSelf);
+        SettingsUI.SetActive(!SettingsUI.activeSelf);
         isSettingsOpen = !isSettingsOpen;
-        Debug.Log(isSettingsOpen);
+    }
+
+    public void TargetTracked(string targetName)
+    {
+        if (currentAppMode == AppMode.Adventure)
+        {
+            Debug.Log(targetName);
+        }
+    }
+
+    private void ManageModeChange(AppMode previousMode, AppMode newMode)
+    {
+        switch(previousMode)
+        {
+            case AppMode.Discovery:
+                TargetsGO.SetActive(false);
+                break;
+            case AppMode.Test:
+                TestModeUI.SetActive(false);
+                break;
+            case AppMode.Adventure:
+                AdventureModeUI.SetActive(false);
+                TargetsGO.SetActive(false);
+                break;
+        }
+
+        switch (newMode)
+        {
+            case AppMode.Discovery:
+                TargetsGO.SetActive(true);
+                break;
+            case AppMode.Test:
+                TestModeUI.SetActive(true);
+                break;
+            case AppMode.Adventure:
+                AdventureModeUI.SetActive(true);
+                adventureModeScore = 0;
+                GenerateNewAdventure();
+                TargetsGO.SetActive(true);
+                break;
+        }
+    }
+
+    private void GenerateNewAdventure()
+    {
+        
     }
 
     private void TestButtonClicked(string name)
