@@ -5,6 +5,7 @@ using UnityEngine;
 public class TapActivation : MonoBehaviour {
 
     public GameObject directorGO;
+    public int settingsUIId;
 
     private Director director;
 
@@ -15,14 +16,10 @@ public class TapActivation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown(0))
-        {
-            OnSelect();
-        }
 	}
 
     public void OnSelect()
     {
-        director.ButtonClicked(this.gameObject);
+        director.FixedUIButtonClicked(settingsUIId);
     }
 }
