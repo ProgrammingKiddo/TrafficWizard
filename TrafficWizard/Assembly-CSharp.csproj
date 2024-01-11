@@ -51,7 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MyAssets\Scripts\ButtonCommand.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\AdventureUIController.cs" />
      <Compile Include="Assets\MyAssets\Scripts\Cursor.cs" />
      <Compile Include="Assets\MyAssets\Scripts\CustomTrackableEventHandler.cs" />
      <Compile Include="Assets\MyAssets\Scripts\Director.cs" />
@@ -60,8 +60,9 @@
      <Compile Include="Assets\MyAssets\Scripts\GazeGestureManager.cs" />
      <Compile Include="Assets\MyAssets\Scripts\IGameDirector.cs" />
      <Compile Include="Assets\MyAssets\Scripts\ITrafficSignsData.cs" />
-     <Compile Include="Assets\MyAssets\Scripts\TapActivation.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\SettingsUIController.cs" />
      <Compile Include="Assets\MyAssets\Scripts\TargetActivation.cs" />
+     <Compile Include="Assets\MyAssets\Scripts\TestUIController.cs" />
      <Compile Include="Assets\MyAssets\Scripts\TrafficSign.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />

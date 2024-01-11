@@ -7,89 +7,88 @@ using Vuforia;
 
 public class Director : MonoBehaviour {
 
-    public GameObject VersionTextGO;
+    public Text VersionText;
     public GameObject SettingsUI;
     public GameObject TestModeUI;
     public GameObject AdventureModeUI;
     public GameObject TargetsGO;
+    public AudioClip coin;
+    public AudioClip setting;
 
     enum AppMode
     {
-        Discovery = 0,
+        Exploracion = 0,
         Test = 1,
-        Adventure = 2
+        Aventura = 2
     }
-    //public GameObject testTargetGO;
+    private AudioSource audioSource;
     private AppMode currentAppMode;
-    private bool isSettingsOpen;
-    private IGameDirector gameDirector;
-    private GameObject createdGO;
-    private Vector3 eulerAngleVelocity = new Vector3(10f, 10f, 0f);
 
+    private ITrafficSignsData trafficSignsDAO;
+
+    // Test mode stuff
+
+    // Adventure mode stuff
     private int adventureModeScore = 0;
-    // Use this for initialization
+    private string currentSignToFind = "";
+
+
     void Start () {
-        gameDirector = new DiscoveryGameDirector();
-        isSettingsOpen = true;
-        currentAppMode = AppMode.Discovery;
+
+        currentAppMode = AppMode.Exploracion;
+        trafficSignsDAO = new FileParserTrafficSignsData();
+        audioSource = GetComponent<AudioSource>();
+        Debug.Log("Numbers of signs: " + trafficSignsDAO.GetNumberOfTrafficSigns());
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            FixedUIButtonClicked(2);
+            ChangeAppMode(2);
         }
 
     }
 
-    public void FixedUIButtonClicked(int settingsUIId)
+    public void ChangeAppMode(int settingsUIId)
     {
-        if (settingsUIId != -1)
+        AppMode previousAppMode = currentAppMode;
+        currentAppMode = (AppMode)settingsUIId;
+        if (currentAppMode != previousAppMode)
         {
-            AppMode previousAppMode = currentAppMode;
-            currentAppMode = (AppMode)settingsUIId;
             ManageModeChange(previousAppMode, currentAppMode);
-            VersionTextGO.GetComponent<Text>().text = "Current mode: " + currentAppMode;
+            VersionText.text = "Modo actual: " + currentAppMode;
         }
-        // Turn on/off the option panels
-        SettingsUI.SetActive(!SettingsUI.activeSelf);
-        isSettingsOpen = !isSettingsOpen;
     }
 
-    public void TargetTracked(string targetName)
-    {
-        if (currentAppMode == AppMode.Adventure)
-        {
-            Debug.Log(targetName);
-        }
-    }
+    
 
     private void ManageModeChange(AppMode previousMode, AppMode newMode)
     {
         switch(previousMode)
         {
-            case AppMode.Discovery:
+            case AppMode.Exploracion:
                 TargetsGO.SetActive(false);
                 break;
             case AppMode.Test:
                 TestModeUI.SetActive(false);
                 break;
-            case AppMode.Adventure:
+            case AppMode.Aventura:
                 AdventureModeUI.SetActive(false);
                 TargetsGO.SetActive(false);
                 break;
         }
-
+        audioSource.clip = setting;
+        audioSource.Play();
         switch (newMode)
         {
-            case AppMode.Discovery:
+            case AppMode.Exploracion:
                 TargetsGO.SetActive(true);
                 break;
             case AppMode.Test:
                 TestModeUI.SetActive(true);
                 break;
-            case AppMode.Adventure:
+            case AppMode.Aventura:
                 AdventureModeUI.SetActive(true);
                 adventureModeScore = 0;
                 GenerateNewAdventure();
@@ -98,13 +97,29 @@ public class Director : MonoBehaviour {
         }
     }
 
-    private void GenerateNewAdventure()
+    // Adventure mode methods
+
+    public void TargetTracked(string targetName)
     {
-        
+        if (currentAppMode == AppMode.Aventura)
+        {
+            string foundSignName;
+            trafficSignsDAO.GetSignNameByTargetName(targetName, out foundSignName);
+            if (foundSignName == currentSignToFind)
+            {
+                adventureModeScore++;
+                audioSource.clip = coin;
+                audioSource.Play();
+                GenerateNewAdventure();
+            }
+        }
     }
 
-    private void TestButtonClicked(string name)
+    private void GenerateNewAdventure()
     {
-        gameDirector.TestButtonClicked(name, VersionTextGO);
+        currentSignToFind = trafficSignsDAO.GetRandomSignName();
+        AdventureModeUI.GetComponent<AdventureUIController>().UpdateTargetSignText(currentSignToFind);
+        AdventureModeUI.GetComponent<AdventureUIController>().UpdateCurrentScoreText(adventureModeScore);
     }
+
 }

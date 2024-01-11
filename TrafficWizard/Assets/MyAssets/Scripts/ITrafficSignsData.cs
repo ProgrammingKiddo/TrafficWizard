@@ -13,5 +13,7 @@ public interface ITrafficSignsData
     bool GetSignTargetNameByText(string signText, out string signTargetName);
     bool GetSignTargetNameByName(string signName, out string signTargetName);
 
+    string GetRandomSignName();
+
     int GetNumberOfTrafficSigns();
 }

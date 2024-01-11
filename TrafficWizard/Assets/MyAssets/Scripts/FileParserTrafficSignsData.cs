@@ -59,7 +59,7 @@ public class FileParserTrafficSignsData : ITrafficSignsData
     {
         TrafficSign tempSign = signCollection.Find(x => x.signTargetName == signTargetName);
         bool signFound = (tempSign != null);
-        signName = (signFound) ? "" : tempSign.signName;
+        signName = (signFound) ? tempSign.signName : "";
         return signFound;
     }
 
@@ -81,6 +81,12 @@ public class FileParserTrafficSignsData : ITrafficSignsData
     public int GetNumberOfTrafficSigns()
     {
         return signCollection.Count;
+    }
+
+    public string GetRandomSignName()
+    {
+        System.Random rand = new System.Random();
+        return signCollection[rand.Next(signCollection.Count)].signName;
     }
 
     // Utility methods

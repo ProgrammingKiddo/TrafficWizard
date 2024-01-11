@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*
+ * Based on the code by the Microsoft Corporation (2023)
+ * https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/tutorials/holograms-101
+ * 
+ * Source cited as per the 'Writing Code' guidelines on Academic Integrity at MIT
+ * https://integrity.mit.edu/handbook/writing-code
+ */
+
+using UnityEngine;
 using UnityEngine.XR.WSA.Input;
 
 public class GazeGestureManager : MonoBehaviour
@@ -22,8 +30,7 @@ public class GazeGestureManager : MonoBehaviour
             // Send an OnSelect message to the focused object and its ancestors.
             if (FocusedObject != null)
             {
-                Debug.Log("Tapped gesture recognized, sending message to " + FocusedObject.name);
-                FocusedObject.SendMessageUpwards("OnSelect", SendMessageOptions.DontRequireReceiver);
+                FocusedObject.SendMessageUpwards("OnSelect", FocusedObject);
             }
         };
         recognizer.StartCapturingGestures();
@@ -48,7 +55,6 @@ public class GazeGestureManager : MonoBehaviour
         }
         else
         {
-            //Debug.Log("Raycast found no collision.");
             // If the raycast did not hit a hologram, clear the focused object.
             FocusedObject = null;
         }
@@ -57,7 +63,6 @@ public class GazeGestureManager : MonoBehaviour
         // start detecting fresh gestures again.
         if (FocusedObject != oldFocusObject && FocusedObject != null)
         {
-            Debug.Log("Collided with " + FocusedObject.name);
             recognizer.CancelGestures();
             recognizer.StartCapturingGestures();
         }
