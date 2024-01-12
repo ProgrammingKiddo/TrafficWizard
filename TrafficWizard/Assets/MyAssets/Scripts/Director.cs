@@ -13,7 +13,7 @@ public class Director : MonoBehaviour {
     public GameObject AdventureModeUI;
     public GameObject TargetsGO;
     public AudioClip coin;
-    public AudioClip setting;
+    public AudioClip modeChangeSound;
     public UnityEngine.UI.Image testImage;
 
     enum AppMode
@@ -26,11 +26,13 @@ public class Director : MonoBehaviour {
     private AppMode currentAppMode;
 
     private ITrafficSignsData trafficSignsDAO;
-    private ITrafficSignsSprites trafficSignsSpritesDAO;
+    private ITrafficSignsQuestions trafficSignsQuestionsDAO;
 
     // Test mode stuff
     private int currentTestScore = 0;
     private int maxTestScore = 0;
+    private TrafficSignQuestion currentQuestion;
+    private TrafficSignQuestion previousQuestion;
 
     // Adventure mode stuff
     private int adventureModeScore = 0;
@@ -42,16 +44,17 @@ public class Director : MonoBehaviour {
 
         currentAppMode = AppMode.Exploracion;
         trafficSignsDAO = new FileParserTrafficSignsData();
-        trafficSignsSpritesDAO = new LocalStorageTrafficSignsSprites();
+        trafficSignsQuestionsDAO = new FileParserTrafficSignsQuestions();
         audioSource = GetComponent<AudioSource>();
         Debug.Log("Numbers of signs: " + trafficSignsDAO.GetNumberOfTrafficSigns());
+        Debug.Log("Number of questions: " + trafficSignsQuestionsDAO.GetNumberOfQuestions());
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            testImage.sprite = trafficSignsSpritesDAO.GetSignSprite("Sign_R-2");
+            ChangeAppMode(1);
         }
 
     }
@@ -84,8 +87,7 @@ public class Director : MonoBehaviour {
                 TargetsGO.SetActive(false);
                 break;
         }
-        audioSource.clip = setting;
-        audioSource.Play();
+        PlayClip(modeChangeSound);
         switch (newMode)
         {
             case AppMode.Exploracion:
@@ -95,6 +97,8 @@ public class Director : MonoBehaviour {
                 TestModeUI.SetActive(true);
                 currentTestScore = 0;
                 maxTestScore = 0;
+                currentQuestion = null;
+                previousQuestion = null;
                 GenerateNewQuestion();
                 break;
             case AppMode.Aventura:
@@ -108,6 +112,12 @@ public class Director : MonoBehaviour {
         }
     }
 
+    private void PlayClip(AudioClip audio)
+    {
+        audioSource.clip = audio;
+        audioSource.Play();
+    }
+
     // Adventure mode methods
 
     public void TargetTracked(string targetName)
@@ -119,8 +129,7 @@ public class Director : MonoBehaviour {
             if (foundSignName == currentSignToFind)
             {
                 adventureModeScore++;
-                audioSource.clip = coin;
-                audioSource.Play();
+                PlayClip(coin);
                 GenerateNewAdventure();
             }
         }
@@ -144,12 +153,26 @@ public class Director : MonoBehaviour {
 
     private void GenerateNewQuestion()
     {
+        previousQuestion = currentQuestion;
+        do
+        {
+            currentQuestion = trafficSignsQuestionsDAO.GetRandomQuestion();
+        } while (currentQuestion == previousQuestion);
+
         TestModeUI.GetComponent<TestUIController>().UpdateScoreText(currentTestScore, maxTestScore);
+        TestModeUI.GetComponent<TestUIController>().ShowQuestion(currentQuestion);
     }
 
-    private void GenerateNewType1Question()
+    public void CheckAnswer(string answer)
     {
-
+        Debug.Log("Answer submitted: " + answer);
+        if (answer == currentQuestion.answers[0])
+        {
+            PlayClip(coin);
+            currentTestScore++;
+        }
+        maxTestScore++;
+        GenerateNewQuestion();
     }
 
 }

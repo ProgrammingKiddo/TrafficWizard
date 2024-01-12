@@ -55,7 +55,8 @@ public class FileParserTrafficSignsQuestions : ITrafficSignsQuestions {
     private void ParseRawText(string rawText)
     {
         string[] lines;
-        lines = rawText.Split('\n');
+        // This way we catch all types of newline forms
+        lines = rawText.Split(new string[] { "\r\n", "\r", "\n" }, System.StringSplitOptions.None);
         int i = 0;
         string[] signAttributes;
         while (i < lines.Length)
