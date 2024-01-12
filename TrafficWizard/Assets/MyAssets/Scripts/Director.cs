@@ -14,6 +14,7 @@ public class Director : MonoBehaviour {
     public GameObject TargetsGO;
     public AudioClip coin;
     public AudioClip setting;
+    public UnityEngine.UI.Image testImage;
 
     enum AppMode
     {
@@ -25,18 +26,23 @@ public class Director : MonoBehaviour {
     private AppMode currentAppMode;
 
     private ITrafficSignsData trafficSignsDAO;
+    private ITrafficSignsSprites trafficSignsSpritesDAO;
 
     // Test mode stuff
+    private int currentTestScore = 0;
+    private int maxTestScore = 0;
 
     // Adventure mode stuff
     private int adventureModeScore = 0;
     private string currentSignToFind = "";
+    private string previousSignToFind = "";
 
 
     void Start () {
 
         currentAppMode = AppMode.Exploracion;
         trafficSignsDAO = new FileParserTrafficSignsData();
+        trafficSignsSpritesDAO = new LocalStorageTrafficSignsSprites();
         audioSource = GetComponent<AudioSource>();
         Debug.Log("Numbers of signs: " + trafficSignsDAO.GetNumberOfTrafficSigns());
     }
@@ -45,7 +51,7 @@ public class Director : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            ChangeAppMode(2);
+            testImage.sprite = trafficSignsSpritesDAO.GetSignSprite("Sign_R-2");
         }
 
     }
@@ -87,10 +93,15 @@ public class Director : MonoBehaviour {
                 break;
             case AppMode.Test:
                 TestModeUI.SetActive(true);
+                currentTestScore = 0;
+                maxTestScore = 0;
+                GenerateNewQuestion();
                 break;
             case AppMode.Aventura:
                 AdventureModeUI.SetActive(true);
                 adventureModeScore = 0;
+                currentSignToFind = "";
+                previousSignToFind = "";
                 GenerateNewAdventure();
                 TargetsGO.SetActive(true);
                 break;
@@ -117,9 +128,28 @@ public class Director : MonoBehaviour {
 
     private void GenerateNewAdventure()
     {
-        currentSignToFind = trafficSignsDAO.GetRandomSignName();
+        // We get a new random Sign to find and make sure it's not
+        // the same one we just got before
+        previousSignToFind = currentSignToFind;
+        do
+        {
+            currentSignToFind = trafficSignsDAO.GetRandomSignName();
+        } while (currentSignToFind == previousSignToFind);
+
         AdventureModeUI.GetComponent<AdventureUIController>().UpdateTargetSignText(currentSignToFind);
         AdventureModeUI.GetComponent<AdventureUIController>().UpdateCurrentScoreText(adventureModeScore);
+    }
+
+    // Test mode methods
+
+    private void GenerateNewQuestion()
+    {
+        TestModeUI.GetComponent<TestUIController>().UpdateScoreText(currentTestScore, maxTestScore);
+    }
+
+    private void GenerateNewType1Question()
+    {
+
     }
 
 }
