@@ -592,8 +592,10 @@ PlayerSettings:
     Microsoft Hololens.
   wsaImages:
     2097252: Assets/MyAssets/Sprites/TrafficWizard_protoIcon_1_71x71.png
+    2097352: Assets/MyAssets/Sprites/TrafficWizard_protoIcon_1_71x71_200.png
     2162788: Assets/MyAssets/Sprites/TrafficWizard_protoIcon_1_150x150.png
-    2228324: Assets/MyAssets/Sprites/TrafficWizard_protoIcon_1.png
+    2228324: Assets/MyAssets/Sprites/TrafficWizard_protoIcon_310x310.png
+    2228424: Assets/MyAssets/Sprites/TrafficWizard_protoIcon_310x310_200.png
   metroTileShortName: TrafficWizard
   metroCommandLineArgsFile: 
   metroTileShowName: 0

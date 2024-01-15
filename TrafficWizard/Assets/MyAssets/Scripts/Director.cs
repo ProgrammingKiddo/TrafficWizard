@@ -49,15 +49,7 @@ public class Director : MonoBehaviour {
         Debug.Log("Numbers of signs: " + trafficSignsDAO.GetNumberOfTrafficSigns());
         Debug.Log("Number of questions: " + trafficSignsQuestionsDAO.GetNumberOfQuestions());
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetMouseButtonDown(0))
-        {
-            ChangeAppMode(1);
-        }
 
-    }
 
     public void ChangeAppMode(int settingsUIId)
     {
@@ -165,7 +157,6 @@ public class Director : MonoBehaviour {
 
     public void CheckAnswer(string answer)
     {
-        Debug.Log("Answer submitted: " + answer);
         if (answer == currentQuestion.answers[0])
         {
             PlayClip(coin);
