@@ -1,6 +1,6 @@
 Metro
 PlayerPath?
-C:/UnityProjects/Builds/TrafficWizard_Release_1.0
+C:/UnityProjects/Builds/TrafficWizard_Release_1.1
 SceneListBegin?
 Assets/MyAssets/Scenes/AppView.unity
 SceneListEnd?

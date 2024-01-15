@@ -46,8 +46,8 @@ public class Director : MonoBehaviour {
         trafficSignsDAO = new FileParserTrafficSignsData();
         trafficSignsQuestionsDAO = new FileParserTrafficSignsQuestions();
         audioSource = GetComponent<AudioSource>();
-        Debug.Log("Numbers of signs: " + trafficSignsDAO.GetNumberOfTrafficSigns());
-        Debug.Log("Number of questions: " + trafficSignsQuestionsDAO.GetNumberOfQuestions());
+        string s = "¿características guardadas?";
+        VersionText.text = s;
     }
 
 

@@ -41,7 +41,7 @@ public class FileParserTrafficSignsQuestions : ITrafficSignsQuestions {
     {
         try
         {
-            rawText = File.ReadAllText(filePath);
+            rawText = File.ReadAllText(filePath, System.Text.Encoding.GetEncoding("iso-8859-1"));
             fileFound = true;
         }
         catch (System.Exception e)
