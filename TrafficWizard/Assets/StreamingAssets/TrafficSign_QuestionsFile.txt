@@ -4,3 +4,5 @@
 1;Fin de la limitación de velocidad;Sign_R-501;Sign_R-308e;Sign_R-301_30kmph
 1;Intersección de sentido giratorio-obligatorio;Sign_R-402;Sign_R-2;Sign_R-501
 2;Sign_R-301_50kmph;Velocidad máxima;Fin de la limitación de velocidad;Detención obligatoria o stop
+2;Sign_R-410;Camino reservado para peatones;Intersección de sentido giratorio-obligatorio;Adelantamiento prohibido para camiones
+2;Sign_R-402;Intersección de sentido giratorio-obligatorio;Estacionamiento prohibido en vado;Camino reservado para peatones

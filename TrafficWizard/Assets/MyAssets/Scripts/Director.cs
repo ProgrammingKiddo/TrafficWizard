@@ -14,7 +14,6 @@ public class Director : MonoBehaviour {
     public GameObject TargetsGO;
     public AudioClip coin;
     public AudioClip modeChangeSound;
-    public UnityEngine.UI.Image testImage;
 
     enum AppMode
     {
@@ -46,10 +45,8 @@ public class Director : MonoBehaviour {
         trafficSignsDAO = new FileParserTrafficSignsData();
         trafficSignsQuestionsDAO = new FileParserTrafficSignsQuestions();
         audioSource = GetComponent<AudioSource>();
-        string s = "¿características guardadas?";
-        VersionText.text = s;
+        ChangeAppMode(1);
     }
-
 
     public void ChangeAppMode(int settingsUIId)
     {
